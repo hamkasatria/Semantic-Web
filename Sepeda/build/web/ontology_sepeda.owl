@@ -1,0 +1,2143 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.semanticweb.org/zeon/ontologies/2020/10/untitled-ontology-9.owl"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.semanticweb.org/zeon/ontologies/2020/10/untitled-ontology-9.owl">
+    <Prefix name="" IRI="http://www.semanticweb.org/nisfu0/ontologies/2020/10/untitled-ontology-9.owl"/>
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Annotation>
+        <AnnotationProperty IRI="#SPARQL"/>
+        <Literal>PREFIX : &lt;http://www.semanticweb.org/zeon/ontologies/2020/10/untitled-ontology-9.owl#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+SELECT ?Spara_Part ?Material
+	WHERE { ?Spara_Part :memilikiMaterial ?Material.
+	FILTER(regex(str(?Material),&quot;Baja&quot;))
+	}
+
+
+
+PREFIX : &lt;http://www.semanticweb.org/zeon/ontologies/2020/10/untitled-ontology-9.owl#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+SELECT ?Brand ?Negara
+	WHERE { ?Negara:memiliki ?Brand.
+	FILTER(regex(str(?Negara),&quot;Korea&quot;))
+	}
+
+
+PREFIX : &lt;http://www.semanticweb.org/zeon/ontologies/2020/10/untitled-ontology-9.owl#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+SELECT ?Brand ?Negara?Harga?Spara_Part
+	WHERE { 
+	?Negara:memilikiBrand ?Brand.
+	?Brand:memilikiProduk ?Spara_Part.
+	?Spara_Part:Harga ?Harga.
+	FILTER(regex(str(?Negara),&quot;Indonesia&quot;)).
+	FILTER(regex(str(?Harga),&quot;400000&quot;)
+	}
+
+
+
+PREFIX : &lt;http://www.semanticweb.org/zeon/ontologies/2020/10/untitled-ontology-9.owl#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+SELECT ?Brand ?sample?Harga?Spara_Part
+	WHERE { 
+	?Negara:memilikiBrand ?Brand.
+	?Negara:namaNegara?sample.
+	?Brand:memilikiProduk ?Spara_Part.
+	?Spara_Part:Harga ?Harga.
+	FILTER(regex(str(?sample),&quot;Jepang&quot;)).
+	FILTER(?Harga&gt;= 400000)
+}
+
+
+
+//masih error untuk menampilkan semua object
+PREFIX : &lt;http://www.semanticweb.org/zeon/ontologies/2020/10/untitled-ontology-9.owl#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+SELECT ?Nama_Brand ?sample?Harga?nama_part
+	WHERE { 
+	?Produk:memilikiBrand ?Brand.
+	?Brand:memilikiNama ?Nama_Brand.
+
+	?Negara:namaNegara?sample.
+
+	?Brand:memilikiProduk ?Spare_Part.
+	?Spare_part: memilikiNama ?nama_part.
+	?Spare_Part:Harga ?Harga.
+	FILTER(regex(str(?sample),&quot;jepang&quot;)).
+	
+}
+
+PREFIX : &lt;http://www.semanticweb.org/zeon/ontologies/2020/10/untitled-ontology-9.owl#&gt;
+PREFIX owl: &lt;http://www.w3.org/2002/07/owl#&gt;
+PREFIX rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt;
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+SELECT ?Nama_Brand ?Nama_Negara?Harga?nama_part
+	WHERE { 
+	?Negara:memilikiBrand ?Brand.
+	?Brand:memilikiNama ?Nama_Brand.
+	?Negara:namaNegara?Nama_Negara.
+	?Brand:memilikiProduk ?Spare_part.
+	?Spare_part:memilikiNama ?nama_part.
+	?Spare_part:Harga ?Harga.
+	FILTER(regex(str(?Nama_Negara),&quot;Jepang&quot;)).
+	
+}</Literal>
+    </Annotation>
+    <Annotation>
+        <AnnotationProperty IRI="#identitas"/>
+        <Literal>Nama : Muh Hamka S
+NIM : 123170074</Literal>
+    </Annotation>
+    <Declaration>
+        <Class IRI="#Brand"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Material"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Negara"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Produk"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Sepeda"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Spare_Part"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#afrika"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#amerika"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#asia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#australia"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#ban"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#eropa"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#logam"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#nonlogam"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#pedal"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#rantai"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#saddle"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#sepeda_bmx"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#sepeda_gunung"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#sepeda_lipat"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#sepeda_urban"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#velg"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#Spara_part"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#brandDimiliki"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#matereialDimiliki"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#memilikiBrand"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#memilikiProduk"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#memilikiSparepart"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#memproduksi"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Harga"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Usia_Pemakaian"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#dibagiMenjadi"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#fungsi"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#memilikiNama"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#namaNegara"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tahun"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tingkatIkatanPartikel"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Alumunium"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Amerika"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Bagian_atribut"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Baja"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Besi"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Bike"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Canada_Bike"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Cannondale"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Cina"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Connex_11SO"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Fuji"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GT_Bike"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Giant"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#GoodBike"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Indonesia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Inggris"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Jepang"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#KMC_K810"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kaca"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Karet"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kerangka"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kona"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Korea"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Kulkul"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#NewEra"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Phoenix"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Pit"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Plastik"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Polygon"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Premier"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Roda"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Rusia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SRAM_10"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Santa_Cruz"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Shimano_Tiagra_HG53"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Siskiu"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Spesialized"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Tembaga"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Trek"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#United"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Wimcycle"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#XXX"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#Xtrada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#algeria"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#australia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ban_airless"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ban_clincer"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ban_tubeles"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ban_tubular"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#bmxPro"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#brasil"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#class_X"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#cora"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#denmark"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#jumper"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#kanada"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#mesir"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#nebular"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#pack"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#pattaya"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#pedal_cleat"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#pedal_flat"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#pedal_toe"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#roar"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#ryker"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#saddle_cutout"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#saddle_lebar"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#saddle_sempit"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#selandia_baru"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#swedia"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#urbano"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#velg_bintang"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#velg_jari"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#velg_racing"/>
+    </Declaration>
+    <Declaration>
+        <NamedIndividual IRI="#SunRace_Juju_(CNM99)"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#SPARQL"/>
+    </Declaration>
+    <Declaration>
+        <AnnotationProperty IRI="#identitas"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#Sepeda"/>
+        <Class IRI="#Produk"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#Spare_Part"/>
+        <Class IRI="#Produk"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#afrika"/>
+        <Class IRI="#Negara"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#amerika"/>
+        <Class IRI="#Negara"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#asia"/>
+        <Class IRI="#Negara"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#australia"/>
+        <Class IRI="#Negara"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#ban"/>
+        <Class IRI="#Spare_Part"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#eropa"/>
+        <Class IRI="#Negara"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#logam"/>
+        <Class IRI="#Material"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#nonlogam"/>
+        <Class IRI="#Material"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#pedal"/>
+        <Class IRI="#Spare_Part"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#rantai"/>
+        <Class IRI="#Spare_Part"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#saddle"/>
+        <Class IRI="#Spare_Part"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#sepeda_bmx"/>
+        <Class IRI="#Sepeda"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#sepeda_gunung"/>
+        <Class IRI="#Sepeda"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#sepeda_lipat"/>
+        <Class IRI="#Sepeda"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#sepeda_urban"/>
+        <Class IRI="#Sepeda"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#velg"/>
+        <Class IRI="#Spare_Part"/>
+    </SubClassOf>
+    <ClassAssertion>
+        <Class IRI="#logam"/>
+        <NamedIndividual IRI="#Alumunium"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#amerika"/>
+        <NamedIndividual IRI="#Amerika"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#logam"/>
+        <NamedIndividual IRI="#Baja"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#logam"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Bike"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Canada_Bike"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Cannondale"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#asia"/>
+        <NamedIndividual IRI="#Cina"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#rantai"/>
+        <NamedIndividual IRI="#Connex_11SO"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Fuji"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#GT_Bike"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Giant"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#GoodBike"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#asia"/>
+        <NamedIndividual IRI="#Indonesia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#eropa"/>
+        <NamedIndividual IRI="#Inggris"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#asia"/>
+        <NamedIndividual IRI="#Jepang"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#rantai"/>
+        <NamedIndividual IRI="#KMC_K810"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#nonlogam"/>
+        <NamedIndividual IRI="#Kaca"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#nonlogam"/>
+        <NamedIndividual IRI="#Karet"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Kona"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#asia"/>
+        <NamedIndividual IRI="#Korea"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Kulkul"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#NewEra"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Phoenix"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Pit"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#nonlogam"/>
+        <NamedIndividual IRI="#Plastik"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Polygon"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_gunung"/>
+        <NamedIndividual IRI="#Premier"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#eropa"/>
+        <NamedIndividual IRI="#Rusia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#rantai"/>
+        <NamedIndividual IRI="#SRAM_10"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Santa_Cruz"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#rantai"/>
+        <NamedIndividual IRI="#Shimano_Tiagra_HG53"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_gunung"/>
+        <NamedIndividual IRI="#Siskiu"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Spesialized"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#logam"/>
+        <NamedIndividual IRI="#Tembaga"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Trek"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#United"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#Wimcycle"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#Brand"/>
+        <NamedIndividual IRI="#XXX"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_gunung"/>
+        <NamedIndividual IRI="#Xtrada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#afrika"/>
+        <NamedIndividual IRI="#algeria"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#australia"/>
+        <NamedIndividual IRI="#australia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ban"/>
+        <NamedIndividual IRI="#ban_airless"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ban"/>
+        <NamedIndividual IRI="#ban_clincer"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ban"/>
+        <NamedIndividual IRI="#ban_tubeles"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#ban"/>
+        <NamedIndividual IRI="#ban_tubular"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_bmx"/>
+        <NamedIndividual IRI="#bmxPro"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#amerika"/>
+        <NamedIndividual IRI="#brasil"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_urban"/>
+        <NamedIndividual IRI="#class_X"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_lipat"/>
+        <NamedIndividual IRI="#cora"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#eropa"/>
+        <NamedIndividual IRI="#denmark"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_bmx"/>
+        <NamedIndividual IRI="#jumper"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#amerika"/>
+        <NamedIndividual IRI="#kanada"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#afrika"/>
+        <NamedIndividual IRI="#mesir"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_urban"/>
+        <NamedIndividual IRI="#nebular"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_lipat"/>
+        <NamedIndividual IRI="#pack"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_urban"/>
+        <NamedIndividual IRI="#pattaya"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#pedal"/>
+        <NamedIndividual IRI="#pedal_cleat"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#pedal"/>
+        <NamedIndividual IRI="#pedal_flat"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#pedal"/>
+        <NamedIndividual IRI="#pedal_toe"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_lipat"/>
+        <NamedIndividual IRI="#roar"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_bmx"/>
+        <NamedIndividual IRI="#ryker"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#saddle"/>
+        <NamedIndividual IRI="#saddle_cutout"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#saddle"/>
+        <NamedIndividual IRI="#saddle_lebar"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#saddle"/>
+        <NamedIndividual IRI="#saddle_sempit"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#australia"/>
+        <NamedIndividual IRI="#selandia_baru"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#eropa"/>
+        <NamedIndividual IRI="#swedia"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#sepeda_lipat"/>
+        <NamedIndividual IRI="#urbano"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#velg"/>
+        <NamedIndividual IRI="#velg_bintang"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#velg"/>
+        <NamedIndividual IRI="#velg_jari"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#velg"/>
+        <NamedIndividual IRI="#velg_racing"/>
+    </ClassAssertion>
+    <ClassAssertion>
+        <Class IRI="#rantai"/>
+        <NamedIndividual IRI="#SunRace_Juju_(CNM99)"/>
+    </ClassAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Amerika"/>
+        <NamedIndividual IRI="#NewEra"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Amerika"/>
+        <NamedIndividual IRI="#XXX"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Bike"/>
+        <NamedIndividual IRI="#jumper"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Bike"/>
+        <NamedIndividual IRI="#ryker"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Canada_Bike"/>
+        <NamedIndividual IRI="#Premier"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Canada_Bike"/>
+        <NamedIndividual IRI="#saddle_sempit"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Cannondale"/>
+        <NamedIndividual IRI="#Siskiu"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Cannondale"/>
+        <NamedIndividual IRI="#saddle_lebar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Cannondale"/>
+        <NamedIndividual IRI="#saddle_sempit"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Cina"/>
+        <NamedIndividual IRI="#Fuji"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Cina"/>
+        <NamedIndividual IRI="#GT_Bike"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Cina"/>
+        <NamedIndividual IRI="#Pit"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#Connex_11SO"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Fuji"/>
+        <NamedIndividual IRI="#Xtrada"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Fuji"/>
+        <NamedIndividual IRI="#pedal_cleat"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Fuji"/>
+        <NamedIndividual IRI="#pedal_flat"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#GT_Bike"/>
+        <NamedIndividual IRI="#pack"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#GT_Bike"/>
+        <NamedIndividual IRI="#roar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#GT_Bike"/>
+        <NamedIndividual IRI="#saddle_sempit"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Giant"/>
+        <NamedIndividual IRI="#ban_airless"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Giant"/>
+        <NamedIndividual IRI="#ban_clincer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Giant"/>
+        <NamedIndividual IRI="#cora"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#GoodBike"/>
+        <NamedIndividual IRI="#roar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#GoodBike"/>
+        <NamedIndividual IRI="#urbano"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Indonesia"/>
+        <NamedIndividual IRI="#Wimcycle"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Inggris"/>
+        <NamedIndividual IRI="#GT_Bike"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Inggris"/>
+        <NamedIndividual IRI="#Kulkul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Jepang"/>
+        <NamedIndividual IRI="#Canada_Bike"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Jepang"/>
+        <NamedIndividual IRI="#Fuji"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Jepang"/>
+        <NamedIndividual IRI="#GoodBike"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Jepang"/>
+        <NamedIndividual IRI="#Kulkul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Jepang"/>
+        <NamedIndividual IRI="#Pit"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#KMC_K810"/>
+        <NamedIndividual IRI="#Baja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#KMC_K810"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#Kerangka"/>
+        <NamedIndividual IRI="#Alumunium"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#Kerangka"/>
+        <NamedIndividual IRI="#Baja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#Kerangka"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Kona"/>
+        <NamedIndividual IRI="#ban_tubeles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Kona"/>
+        <NamedIndividual IRI="#pedal_flat"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Kona"/>
+        <NamedIndividual IRI="#roar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Korea"/>
+        <NamedIndividual IRI="#Bike"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Korea"/>
+        <NamedIndividual IRI="#NewEra"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Kulkul"/>
+        <NamedIndividual IRI="#Connex_11SO"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Kulkul"/>
+        <NamedIndividual IRI="#ban_clincer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#NewEra"/>
+        <NamedIndividual IRI="#class_X"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#NewEra"/>
+        <NamedIndividual IRI="#ryker"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Phoenix"/>
+        <NamedIndividual IRI="#ban_tubeles"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Phoenix"/>
+        <NamedIndividual IRI="#nebular"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Phoenix"/>
+        <NamedIndividual IRI="#saddle_lebar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Pit"/>
+        <NamedIndividual IRI="#bmxPro"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Polygon"/>
+        <NamedIndividual IRI="#SRAM_10"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Polygon"/>
+        <NamedIndividual IRI="#roar"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#Roda"/>
+        <NamedIndividual IRI="#Baja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#Roda"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#Rusia"/>
+        <NamedIndividual IRI="#Pit"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#SRAM_10"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Santa_Cruz"/>
+        <NamedIndividual IRI="#ban_clincer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#Shimano_Tiagra_HG53"/>
+        <NamedIndividual IRI="#Baja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#Shimano_Tiagra_HG53"/>
+        <NamedIndividual IRI="#Tembaga"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Spesialized"/>
+        <NamedIndividual IRI="#SunRace_Juju_(CNM99)"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Trek"/>
+        <NamedIndividual IRI="#Siskiu"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Trek"/>
+        <NamedIndividual IRI="#pedal_flat"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#United"/>
+        <NamedIndividual IRI="#Premier"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Wimcycle"/>
+        <NamedIndividual IRI="#ban_airless"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#Wimcycle"/>
+        <NamedIndividual IRI="#ban_clincer"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#XXX"/>
+        <NamedIndividual IRI="#Connex_11SO"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#XXX"/>
+        <NamedIndividual IRI="#pedal_toe"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#algeria"/>
+        <NamedIndividual IRI="#Kona"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#algeria"/>
+        <NamedIndividual IRI="#United"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#australia"/>
+        <NamedIndividual IRI="#Trek"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#australia"/>
+        <NamedIndividual IRI="#United"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#ban_airless"/>
+        <NamedIndividual IRI="#Karet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#ban_clincer"/>
+        <NamedIndividual IRI="#Karet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#ban_tubeles"/>
+        <NamedIndividual IRI="#Karet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#ban_tubular"/>
+        <NamedIndividual IRI="#Karet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <NamedIndividual IRI="#bmxPro"/>
+        <NamedIndividual IRI="#bmxPro"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#brasil"/>
+        <NamedIndividual IRI="#Santa_Cruz"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#brasil"/>
+        <NamedIndividual IRI="#Spesialized"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#kanada"/>
+        <NamedIndividual IRI="#Canada_Bike"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#kanada"/>
+        <NamedIndividual IRI="#GT_Bike"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#mesir"/>
+        <NamedIndividual IRI="#Kona"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#mesir"/>
+        <NamedIndividual IRI="#Kulkul"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#pedal_cleat"/>
+        <NamedIndividual IRI="#Baja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#pedal_cleat"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#pedal_flat"/>
+        <NamedIndividual IRI="#Baja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#pedal_flat"/>
+        <NamedIndividual IRI="#Karet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#pedal_toe"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#pedal_toe"/>
+        <NamedIndividual IRI="#Karet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#pedal_toe"/>
+        <NamedIndividual IRI="#Plastik"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#saddle_cutout"/>
+        <NamedIndividual IRI="#Alumunium"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#saddle_cutout"/>
+        <NamedIndividual IRI="#Plastik"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#saddle_lebar"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#saddle_lebar"/>
+        <NamedIndividual IRI="#Karet"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#saddle_sempit"/>
+        <NamedIndividual IRI="#Alumunium"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#saddle_sempit"/>
+        <NamedIndividual IRI="#Baja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#selandia_baru"/>
+        <NamedIndividual IRI="#Cannondale"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#swedia"/>
+        <NamedIndividual IRI="#Cannondale"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <NamedIndividual IRI="#swedia"/>
+        <NamedIndividual IRI="#Spesialized"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#velg_bintang"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#velg_bintang"/>
+        <NamedIndividual IRI="#Plastik"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#velg_jari"/>
+        <NamedIndividual IRI="#Baja"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#velg_jari"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#velg_racing"/>
+        <NamedIndividual IRI="#Besi"/>
+    </ObjectPropertyAssertion>
+    <ObjectPropertyAssertion>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <NamedIndividual IRI="#SunRace_Juju_(CNM99)"/>
+        <NamedIndividual IRI="#Baja"/>
+    </ObjectPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Alumunium"/>
+        <Literal>Alumunium</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tingkatIkatanPartikel"/>
+        <NamedIndividual IRI="#Alumunium"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#Amerika"/>
+        <Literal>Amerika</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Baja"/>
+        <Literal>Baja</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Baja"/>
+        <Literal>baja</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tingkatIkatanPartikel"/>
+        <NamedIndividual IRI="#Baja"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">6000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Besi"/>
+        <Literal>Besi</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tingkatIkatanPartikel"/>
+        <NamedIndividual IRI="#Besi"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">500</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Bike"/>
+        <Literal>Bike</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tahun"/>
+        <NamedIndividual IRI="#Bike"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Canada_Bike"/>
+        <Literal>canada_bike</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Cannondale"/>
+        <Literal>Cannondale</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#Cina"/>
+        <Literal>Cina</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#Connex_11SO"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Connex_11SO"/>
+        <Literal>connex_11SO</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Fuji"/>
+        <Literal>fuji</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#GT_Bike"/>
+        <Literal>GT_Bike</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Giant"/>
+        <Literal>Giant</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#GoodBike"/>
+        <Literal>Goodbike</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tahun"/>
+        <NamedIndividual IRI="#GoodBike"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2001</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Indonesia"/>
+        <Literal>Indonesia</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Indonesia"/>
+        <Literal>indonesia</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Inggris"/>
+        <Literal>Inggris</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#Jepang"/>
+        <Literal>Jepang</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#KMC_K810"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">200000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#KMC_K810"/>
+        <Literal>KMC_K810</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Kaca"/>
+        <Literal>Kaca</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tingkatIkatanPartikel"/>
+        <NamedIndividual IRI="#Kaca"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">50</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Karet"/>
+        <Literal>Karet</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tingkatIkatanPartikel"/>
+        <NamedIndividual IRI="#Karet"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">75</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#fungsi"/>
+        <NamedIndividual IRI="#Kerangka"/>
+        <Literal>Badan Sepeda</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Kerangka"/>
+        <Literal>Kerangka</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Kona"/>
+        <Literal>Kona</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#Korea"/>
+        <Literal>Korea</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Kulkul"/>
+        <Literal>kulkul</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#NewEra"/>
+        <Literal>NewEra</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tahun"/>
+        <NamedIndividual IRI="#NewEra"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2002</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Phoenix"/>
+        <Literal>Phoenix</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tahun"/>
+        <NamedIndividual IRI="#Phoenix"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2005</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Pit"/>
+        <Literal>pit</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tahun"/>
+        <NamedIndividual IRI="#Pit"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2003</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Plastik"/>
+        <Literal>Plastik</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tingkatIkatanPartikel"/>
+        <NamedIndividual IRI="#Plastik"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Polygon"/>
+        <Literal>Polygon</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#Premier"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">5000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Premier"/>
+        <Literal>premier</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#fungsi"/>
+        <NamedIndividual IRI="#Roda"/>
+        <Literal>Penumpu</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Roda"/>
+        <Literal>Roda</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#Rusia"/>
+        <Literal>Rusia</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#SRAM_10"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">250000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#SRAM_10"/>
+        <Literal>SRAM_10</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Santa_Cruz"/>
+        <Literal>Santa_Cruz</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#Shimano_Tiagra_HG53"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">150000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Shimano_Tiagra_HG53"/>
+        <Literal>Shimano_Tiagra_HG53</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#Siskiu"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Siskiu"/>
+        <Literal>Siskiu</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Spesialized"/>
+        <Literal>Spesialized</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Tembaga"/>
+        <Literal>Tembaga</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tingkatIkatanPartikel"/>
+        <NamedIndividual IRI="#Tembaga"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">300</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Trek"/>
+        <Literal>Trek</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tahun"/>
+        <NamedIndividual IRI="#Trek"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2005</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#United"/>
+        <Literal>United</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tahun"/>
+        <NamedIndividual IRI="#United"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2014</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Wimcycle"/>
+        <Literal>Wimcycle</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tahun"/>
+        <NamedIndividual IRI="#Wimcycle"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2007</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#XXX"/>
+        <Literal>XXX</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#tahun"/>
+        <NamedIndividual IRI="#XXX"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2010</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#Xtrada"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">4000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#Xtrada"/>
+        <Literal>xtrada</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#algeria"/>
+        <Literal>Algeria</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#australia"/>
+        <Literal>Australia</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#australia"/>
+        <Literal>australia</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#ban_airless"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">500000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#ban_airless"/>
+        <Literal>ban_airless</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#ban_clincer"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">200000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#ban_clincer"/>
+        <Literal>Ban_clincer</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#ban_tubeles"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">300000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#ban_tubeles"/>
+        <Literal>ban_tubeles</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#ban_tubular"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">100000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#ban_tubular"/>
+        <Literal>ban_tubular</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#bmxPro"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">50000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#bmxPro"/>
+        <Literal>BmxPro</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#brasil"/>
+        <Literal>Brasil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#brasil"/>
+        <Literal>brasil</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#class_X"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">3000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#class_X"/>
+        <Literal>class_X</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#cora"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">7000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#cora"/>
+        <Literal>cora</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#denmark"/>
+        <Literal>Denmark</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#denmark"/>
+        <Literal>denmark</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#jumper"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">16000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#jumper"/>
+        <Literal>jumper</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#kanada"/>
+        <Literal>kanada</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#mesir"/>
+        <Literal>mesir</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#nebular"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#nebular"/>
+        <Literal>nebular</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#pack"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">4500000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#pack"/>
+        <Literal>pack</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#pattaya"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">7500000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#pattaya"/>
+        <Literal>pattaya</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#pedal_cleat"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">250000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#pedal_cleat"/>
+        <Literal>Peddal_cleat</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#pedal_flat"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">200000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#pedal_flat"/>
+        <Literal>Pedal_flat</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#pedal_toe"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">200000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#pedal_toe"/>
+        <Literal>pedal_flat</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#roar"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">11000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#roar"/>
+        <Literal>Roar</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#ryker"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">10000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#ryker"/>
+        <Literal>ryker</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#saddle_cutout"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">600000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#saddle_cutout"/>
+        <Literal>saddle_cutout</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#saddle_lebar"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">300000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#saddle_lebar"/>
+        <Literal>saddle_lebar</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#saddle_sempit"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">400000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#saddle_sempit"/>
+        <Literal>Saddle_sempit</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#selandia_baru"/>
+        <Literal>selandia_baru</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#namaNegara"/>
+        <NamedIndividual IRI="#swedia"/>
+        <Literal>swedia</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#urbano"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">1000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#urbano"/>
+        <Literal>Urbano</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#velg_bintang"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">5000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#velg_bintang"/>
+        <Literal>velg_bintang</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#velg_jari"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2000000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#velg_jari"/>
+        <Literal>velg_jari</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#velg_racing"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">2500000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#velg_racing"/>
+        <Literal>velg_racing</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#Harga"/>
+        <NamedIndividual IRI="#SunRace_Juju_(CNM99)"/>
+        <Literal datatypeIRI="http://www.w3.org/2001/XMLSchema#integer">300000</Literal>
+    </DataPropertyAssertion>
+    <DataPropertyAssertion>
+        <DataProperty IRI="#memilikiNama"/>
+        <NamedIndividual IRI="#SunRace_Juju_(CNM99)"/>
+        <Literal>&apos;SunRace_Juju_(CNM99)&apos;</Literal>
+    </DataPropertyAssertion>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#brandDimiliki"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <SubObjectPropertyOf>
+        <ObjectProperty IRI="#memilikiSparepart"/>
+        <ObjectProperty abbreviatedIRI="owl:topObjectProperty"/>
+    </SubObjectPropertyOf>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#brandDimiliki"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+    </FunctionalObjectProperty>
+    <FunctionalObjectProperty>
+        <ObjectProperty IRI="#memproduksi"/>
+    </FunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#matereialDimiliki"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#memilikiBrand"/>
+    </InverseFunctionalObjectProperty>
+    <InverseFunctionalObjectProperty>
+        <ObjectProperty IRI="#memilikiProduk"/>
+    </InverseFunctionalObjectProperty>
+    <AsymmetricObjectProperty>
+        <ObjectProperty IRI="#memproduksi"/>
+    </AsymmetricObjectProperty>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#brandDimiliki"/>
+        <Class IRI="#Brand"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#matereialDimiliki"/>
+        <Class IRI="#Material"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#matereialDimiliki"/>
+        <Class IRI="#logam"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#matereialDimiliki"/>
+        <Class IRI="#nonlogam"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <Class IRI="#Produk"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <Class IRI="#Brand"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#memilikiSparepart"/>
+        <Class IRI="#Brand"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#memproduksi"/>
+        <Class IRI="#Produk"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#Spara_part"/>
+        <DataSomeValuesFrom>
+            <DataProperty IRI="#fungsi"/>
+            <Datatype abbreviatedIRI="owl:rational"/>
+        </DataSomeValuesFrom>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#brandDimiliki"/>
+        <Class IRI="#Produk"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#memilikiBrand"/>
+        <Class IRI="#Brand"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <Class IRI="#Material"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#memilikiMaterial"/>
+        <Class IRI="#logam"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#memilikiProduk"/>
+        <Class IRI="#Produk"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#memproduksi"/>
+        <Class IRI="#Sepeda"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#Usia_Pemakaian"/>
+        <DataProperty abbreviatedIRI="owl:topDataProperty"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Harga"/>
+        <Class IRI="#Sepeda"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#dibagiMenjadi"/>
+        <Class IRI="#Material"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#memilikiNama"/>
+        <Class IRI="#Material"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#memilikiNama"/>
+        <Class IRI="#Negara"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#memilikiNama"/>
+        <Class IRI="#Produk"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#namaNegara"/>
+        <Class IRI="#Negara"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tahun"/>
+        <Class IRI="#Sepeda"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tingkatIkatanPartikel"/>
+        <Class IRI="#Material"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#Harga"/>
+        <Datatype abbreviatedIRI="xsd:long"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Usia_Pemakaian"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#fungsi"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#memilikiNama"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#namaNegara"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tahun"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tingkatIkatanPartikel"/>
+        <Datatype abbreviatedIRI="xsd:integer"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
